@@ -6,17 +6,15 @@ export const orbitron = Orbitron({
   weight: ["600"],
 });
 
-export const metadata = {
-  title: "MANGO",
-  description: "Property metric manager",
-};
+// export const metadata = {
+//   title: "MANGO",
+//   description: "Property metric manager",
+// };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={orbitron.className}>
-        {children}
-      </body>
+      <body className={orbitron.className}>{children}</body>
     </html>
   );
 }
