@@ -72,7 +72,7 @@ export default function LoginPage() {
           />
 
           <button
-            style={submitStyle}
+            className="submitStyle"
             onClick={() => {
               if (isLoginOrSignUp === "Login") {
                 signIn(username, password);
@@ -131,14 +131,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
-const submitStyle = {
-  fontFamily: "inherit",
-  backgroundColor: "#f97316",
-  color: "black",
-  border: "none",
-  borderRadius: "8px",
-  padding: "0.75rem 1.5rem",
-  fontSize: "1rem",
-  cursor: "pointer",
-};
