@@ -43,17 +43,18 @@ export default function ContactPage() {
             Contact Us
           </h1>
 
-          <input type="text" placeholder="Name" style={inputStyle} />
-          <input type="email" placeholder="Email" style={inputStyle} />
+          <input type="text" placeholder="Name" className="inputStyle" />
+          <input type="email" placeholder="Email" className="inputStyle" />
           <input
             type="tel"
             placeholder="Phone Number (optional)"
-            style={inputStyle}
+            className="inputStyle"
           />
           <textarea
             placeholder="Concern / Comment"
             rows={4}
-            style={{ ...inputStyle, resize: "none" }}
+            className="inputStyle"
+            style={{ resize: "none" }}
           />
 
           <div
@@ -78,17 +79,6 @@ export default function ContactPage() {
     </div>
   );
 }
-
-const inputStyle = {
-  fontFamily: "inherit",
-  fontSize: "1rem",
-  padding: "0.75rem 1rem",
-  borderRadius: "8px",
-  border: "1px solid black",
-  backgroundColor: "transparent",
-  color: "black",
-  outline: "none",
-};
 
 const attachBox = {
   flex: 1,

@@ -58,7 +58,7 @@ export default function LoginPage() {
           <input
             type="text"
             placeholder="Username or Email"
-            style={inputStyle}
+            className="inputStyle"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -66,7 +66,7 @@ export default function LoginPage() {
           <input
             type="password"
             placeholder="Password"
-            style={inputStyle}
+            className="inputStyle"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -131,17 +131,6 @@ export default function LoginPage() {
     </div>
   );
 }
-
-const inputStyle = {
-  fontFamily: "inherit",
-  fontSize: "1rem",
-  padding: "0.75rem 1rem",
-  borderRadius: "8px",
-  border: "1px solid black",
-  backgroundColor: "transparent",
-  color: "black",
-  outline: "none",
-};
 
 const submitStyle = {
   fontFamily: "inherit",
