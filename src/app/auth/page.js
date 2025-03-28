@@ -1,12 +1,25 @@
 "use client";
 import Link from "next/link";
 import { orbitron } from "../layout";
-import { useState } from "react";
-import signIn from "../hooks/firebase/auth";
+import { useEffect, useState } from "react";
+import { signUp, signIn, googleSignIn } from "../hooks/firebase/auth";
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [isLoginOrSignUp, setIsLoginOrSignUp] = useState("Login");
+  const [signInOrSignUpText, setSignInOrSignUpText] = useState(
+    "New User? Sign up here!"
+  );
+
+  useEffect(() => {
+    if (isLoginOrSignUp === "Sign Up") {
+      setSignInOrSignUpText("Already have an account? Login here!");
+    } else {
+      setSignInOrSignUpText("New User? Sign up here!");
+    }
+  }, [isLoginOrSignUp]);
+
   return (
     <div
       className={orbitron.className}
@@ -75,7 +88,9 @@ export default function LoginPage() {
             gap: "1.5rem",
           }}
         >
-          <h1 style={{ fontSize: "2rem", textAlign: "center" }}>Login</h1>
+          <h1 style={{ fontSize: "2rem", textAlign: "center" }}>
+            {isLoginOrSignUp}
+          </h1>
 
           <input
             type="text"
@@ -93,8 +108,17 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button style={submitStyle} onClick={signIn}>
-            Login
+          <button
+            style={submitStyle}
+            onClick={() => {
+              if (isLoginOrSignUp === "Login") {
+                signIn(username, password);
+              } else {
+                signUp(username, password);
+              }
+            }}
+          >
+            {isLoginOrSignUp}
           </button>
           <button
             style={{
@@ -111,7 +135,7 @@ export default function LoginPage() {
               fontSize: "1rem",
               cursor: "pointer",
             }}
-            onClick={() => signIn("google")}
+            onClick={() => googleSignIn()}
           >
             <img
               src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png"
@@ -120,6 +144,25 @@ export default function LoginPage() {
             />
             Sign in with Google
           </button>
+          <div style={{ textAlign: "center" }}>
+            <span
+              style={{
+                color: "#f97316",
+                textDecoration: "underline",
+                cursor: "pointer",
+                textAlign: "center",
+              }}
+              onClick={() => {
+                if (isLoginOrSignUp == "Login") {
+                  setIsLoginOrSignUp("Sign Up");
+                } else {
+                  setIsLoginOrSignUp("Login");
+                }
+              }}
+            >
+              {signInOrSignUpText}
+            </span>
+          </div>
         </div>
       </main>
     </div>
