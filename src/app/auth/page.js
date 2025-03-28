@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { orbitron } from "../layout";
 import { useEffect, useState } from "react";
 import { signUp, signIn, googleSignIn } from "../hooks/firebase/auth";
