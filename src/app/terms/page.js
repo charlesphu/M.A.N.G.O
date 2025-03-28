@@ -114,14 +114,3 @@ export default function TermsPage() {
     </div>
   );
 }
-
-const navBtnStyle = {
-  fontFamily: "inherit",
-  borderRadius: "6px",
-  padding: "0.75rem 1.5rem",
-  backgroundColor: "black",
-  color: "white",
-  border: "none",
-  fontSize: "1rem",
-  cursor: "pointer",
-};
