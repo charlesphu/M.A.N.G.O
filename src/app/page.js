@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { orbitron } from "./layout";
+import Navbar from "./components/navbar";
 
 export default function Home() {
   return (
@@ -15,83 +16,7 @@ export default function Home() {
       }}
     >
       <div>
-        <header
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            borderBottom: "1px solid #ccc",
-            paddingBottom: "1rem",
-            marginBottom: "2rem",
-          }}
-        >
-          <Link href="/">
-            <button
-              style={{
-                fontFamily: "inherit",
-                fontSize: "1.5rem",
-                padding: "0.5rem 1rem",
-                border: "none",
-                backgroundColor: "black",
-                color: "white",
-                borderRadius: "6px",
-                cursor: "pointer",
-              }}
-            >
-              mango
-            </button>
-          </Link>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Link href="/auth">
-              <button
-                style={{
-                  fontFamily: "inherit",
-                  borderRadius: "6px",
-                  padding: "0.75rem 1.5rem",
-                  backgroundColor: "black",
-                  color: "white",
-                  border: "none",
-                  fontSize: "1rem",
-                  cursor: "pointer",
-                }}
-              >
-                Login
-              </button>
-            </Link>
-            <Link href="/about">
-              <button
-                style={{
-                  fontFamily: "inherit",
-                  borderRadius: "6px",
-                  padding: "0.75rem 1.5rem",
-                  backgroundColor: "black",
-                  color: "white",
-                  border: "none",
-                  fontSize: "1rem",
-                  cursor: "pointer",
-                }}
-              >
-                About
-              </button>
-            </Link>
-            <Link href="/contact">
-              <button
-                style={{
-                  fontFamily: "inherit",
-                  borderRadius: "6px",
-                  padding: "0.75rem 1.5rem",
-                  backgroundColor: "black",
-                  color: "white",
-                  border: "none",
-                  fontSize: "1rem",
-                  cursor: "pointer",
-                }}
-              >
-                Contact
-              </button>
-            </Link>
-          </div>
-        </header>
+        <Navbar />
 
         <main
           style={{

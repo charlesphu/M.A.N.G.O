@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { orbitron } from "../layout";
+import Navbar from "../components/navbar";
 
 export default function PrivacyPage() {
   return (
@@ -12,44 +13,7 @@ export default function PrivacyPage() {
         padding: "1rem 2rem",
       }}
     >
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderBottom: "1px solid #ccc",
-          paddingBottom: "1rem",
-          marginBottom: "2rem",
-        }}
-      >
-        <Link href="/">
-          <button
-            style={{
-              fontFamily: "inherit",
-              fontSize: "1.5rem",
-              padding: "0.5rem 1rem",
-              border: "none",
-              backgroundColor: "black",
-              color: "white",
-              borderRadius: "6px",
-              cursor: "pointer",
-            }}
-          >
-            mango
-          </button>
-        </Link>
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <Link href="/auth">
-            <button style={navBtnStyle}>Login</button>
-          </Link>
-          <Link href="/about">
-            <button style={navBtnStyle}>About</button>
-          </Link>
-          <Link href="/contact">
-            <button style={navBtnStyle}>Contact</button>
-          </Link>
-        </div>
-      </header>
+      <Navbar />
 
       <main style={{ maxWidth: "800px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>

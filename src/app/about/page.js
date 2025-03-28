@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { orbitron } from "../layout";
+import Navbar from "../components/navbar";
 
 export default function AboutPage() {
   return (
@@ -14,44 +14,7 @@ export default function AboutPage() {
         flexDirection: "column",
       }}
     >
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderBottom: "1px solid #ccc",
-          paddingBottom: "1rem",
-          marginBottom: "2rem",
-        }}
-      >
-        <Link href="/">
-          <button
-            style={{
-              fontFamily: "inherit",
-              fontSize: "1.5rem",
-              padding: "0.5rem 1rem",
-              border: "none",
-              backgroundColor: "black",
-              color: "white",
-              borderRadius: "6px",
-              cursor: "pointer",
-            }}
-          >
-            mango
-          </button>
-        </Link>
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <Link href="/auth">
-            <button style={navBtnStyle}>Login</button>
-          </Link>
-          <Link href="/contact">
-            <button style={navBtnStyle}>Contact</button>
-          </Link>
-          <Link href="/privacy">
-            <button style={navBtnStyle}>Privacy</button>
-          </Link>
-        </div>
-      </header>
+      <Navbar />
 
       <main style={{ maxWidth: "800px", margin: "0 auto", textAlign: "left" }}>
         <h1
