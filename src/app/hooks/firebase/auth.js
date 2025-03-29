@@ -8,44 +8,28 @@ import { auth } from "./config";
 
 export function googleSignIn() {
   const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-      console.log("User signed in:", user);
-    })
+  return signInWithPopup(auth, provider)
+    .then((result) => result.user)
     .catch((error) => {
-      console.error("Error during sign-in:", error);
+      console.error("Google sign-in error:", error);
+      throw error;
     });
 }
 
 export function signIn(email, password) {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed up
-      const user = userCredential.user;
-      console.log("User signed in:", user);
-    })
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => userCredential.user)
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      console.error("Email/password sign-in error:", error);
+      throw error;
     });
 }
 
 export function signUp(email, password) {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed up
-      const user = userCredential.user;
-      console.log("User signed up");
-    })
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => userCredential.user)
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      console.error("Signup error:", error);
+      throw error;
     });
 }

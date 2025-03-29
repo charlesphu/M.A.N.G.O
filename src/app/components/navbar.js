@@ -1,5 +1,19 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { getAuth, signOut } from "firebase/auth";
+
 export default function Navbar() {
+  const pathname = usePathname();
+  const isDashboard = pathname.startsWith("/dashboard");
+
+  const handleLogout = () => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      window.location.href = "/auth";
+    });
+  };
+
   return (
     <header
       style={{
@@ -7,7 +21,7 @@ export default function Navbar() {
         justifyContent: "space-between",
         alignItems: "center",
         borderBottom: "1px solid #ccc",
-        paddingBottom: "1rem",
+        padding: "1rem 0",
         marginBottom: "2rem",
       }}
     >
@@ -27,15 +41,22 @@ export default function Navbar() {
           mango
         </button>
       </Link>
+
       <div style={{ display: "flex", gap: "1rem" }}>
         <Link href="/about">
           <button className="navBtnStyle">About</button>
         </Link>
-        <Link href="/auth">
-          <button className="navBtnStyle">Login</button>
-        </Link>
-        <Link href="/privacy">
-          <button className="navBtnStyle">Privacy</button>
+        {isDashboard ? (
+          <button className="navBtnStyle" onClick={handleLogout}>
+            Logout
+          </button>
+        ) : (
+          <Link href="/auth">
+            <button className="navBtnStyle">Login</button>
+          </Link>
+        )}
+        <Link href="/contact">
+          <button className="navBtnStyle">Contact</button>
         </Link>
       </div>
     </header>
