@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { orbitron } from "../layout";
+import { orbitron } from "../obitronStyle";
 import Navbar from "../components/navbar";
 
 export default function PrivacyPage() {
@@ -59,8 +59,8 @@ export default function PrivacyPage() {
           <li>Communicate with you and improve service</li>
         </ul>
         <p style={{ color: "#f97316" }}>
-          We don’t sell your data or use it for advertising. Your privacy is our
-          priority.
+          We don&apos;t sell your data or use it for advertising. Your privacy
+          is our priority.
         </p>
 
         <h2>4. Sharing Your Information</h2>
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
         <ul>
           <li>
             It will be{" "}
-            <span style={{ color: "#f97316" }}>only what's necessary</span>
+            <span style={{ color: "#f97316" }}>only what&apos;s necessary</span>
           </li>
           <li>
             We will ensure{" "}
@@ -101,9 +101,11 @@ export default function PrivacyPage() {
         </p>
 
         <h2>7. California Rights</h2>
-        <p>If you're in California, under the CCPA:</p>
+        <p>If you&apos;re in California, under the CCPA:</p>
         <ul>
-          <li>Right to know, delete, or opt out (we don’t sell data anyway)</li>
+          <li>
+            Right to know, delete, or opt out (we don&apos;t sell data anyway)
+          </li>
           <li>
             Email{" "}
             <span style={{ color: "#f97316" }}>heliosbayarea@gmail.com</span> to
@@ -113,7 +115,7 @@ export default function PrivacyPage() {
 
         <h2>8. Managing Your Data</h2>
         <p>
-          You can update or delete your info by contacting us. We’ll comply
+          You can update or delete your info by contacting us. We&apos;ll comply
           unless required to retain it legally.
         </p>
 
@@ -122,8 +124,8 @@ export default function PrivacyPage() {
 
         <h2>10. Policy Changes</h2>
         <p>
-          This policy may change as Mango evolves. We'll notify you via email or
-          in-app notice.
+          This policy may change as Mango evolves. We&apos;ll notify you via
+          email or in-app notice.
         </p>
 
         <h2>11. Contact</h2>

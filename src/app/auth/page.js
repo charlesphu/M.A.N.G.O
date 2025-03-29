@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/navbar";
-import { orbitron } from "../layout";
+import { orbitron } from "../obitronStyle";
 import { signUp, signIn, googleSignIn } from "../hooks/firebase/auth";
 
 export default function LoginPage() {
@@ -98,7 +98,9 @@ export default function LoginPage() {
           />
 
           {error && (
-            <p style={{ color: "red", textAlign: "center", fontSize: "0.9rem" }}>
+            <p
+              style={{ color: "red", textAlign: "center", fontSize: "0.9rem" }}
+            >
               {error}
             </p>
           )}

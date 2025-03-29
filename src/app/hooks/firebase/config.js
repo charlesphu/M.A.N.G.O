@@ -5,18 +5,16 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC4RU99mS6Vm3m8M_wNfMT95Fl8POgllkQ",
-  authDomain: "m-ango.firebaseapp.com",
-  projectId: "m-ango",
-  storageBucket: "m-ango.firebasestorage.app",
-  messagingSenderId: "26878208374",
-  appId: "1:26878208374:web:beffa23a7618ac031ff257",
-  measurementId: "G-8F4Q91F6BW",
+  apiKey: "AIzaSyBi9_bUEE08KpgBRtRrjrsiOkPGZcTkCuU",
+  authDomain: "m-a-n-g-o.firebaseapp.com",
+  projectId: "m-a-n-g-o",
+  storageBucket: "m-a-n-g-o.firebasestorage.app",
+  messagingSenderId: "300585204481",
+  appId: "1:300585204481:web:19d06ff61410c6fde53900",
+  measurementId: "G-FQ7MRY5SQR",
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const analytics = getAnalytics(app); // ✅ now called after app is defined
 
-export { app, auth, analytics };
+export { app, auth };
