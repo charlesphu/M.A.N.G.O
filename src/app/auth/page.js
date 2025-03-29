@@ -1,8 +1,10 @@
 "use client";
-import { orbitron } from "../layout";
-import { useEffect, useState } from "react";
-import { signUp, signIn, googleSignIn } from "../hooks/firebase/auth";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "../components/navbar";
+import { orbitron } from "../layout";
+import { signUp, signIn, googleSignIn } from "../hooks/firebase/auth";
+
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,14 +13,39 @@ export default function LoginPage() {
   const [signInOrSignUpText, setSignInOrSignUpText] = useState(
     "New User? Sign up here!"
   );
+  const router = useRouter();
 
   useEffect(() => {
-    if (isLoginOrSignUp === "Sign Up") {
-      setSignInOrSignUpText("Already have an account? Login here!");
-    } else {
-      setSignInOrSignUpText("New User? Sign up here!");
-    }
+    setSignInOrSignUpText(
+      isLoginOrSignUp === "Sign Up"
+        ? "Already have an account? Login here!"
+        : "New User? Sign up here!"
+    );
   }, [isLoginOrSignUp]);
+
+  const handleAuth = async () => {
+    setError(null);
+    try {
+      if (isLoginOrSignUp === "Login") {
+        await signIn(username, password);
+      } else {
+        await signUp(username, password);
+      }
+      router.push("/dashboard");
+    } catch (err) {
+      setError(err.message || "An unexpected error occurred.");
+    }
+  };
+
+  const handleGoogle = async () => {
+    setError(null);
+    try {
+      await googleSignIn();
+      router.push("/dashboard");
+    } catch (err) {
+      setError(err.message || "Google sign-in failed.");
+    }
+  };
 
   return (
     <div
@@ -70,19 +97,18 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button
-            className="submitStyle"
-            onClick={() => {
-              if (isLoginOrSignUp === "Login") {
-                signIn(username, password);
-              } else {
-                signUp(username, password);
-              }
-            }}
-          >
+          {error && (
+            <p style={{ color: "red", textAlign: "center", fontSize: "0.9rem" }}>
+              {error}
+            </p>
+          )}
+
+          <button className="submitStyle" onClick={handleAuth}>
             {isLoginOrSignUp}
           </button>
+
           <button
+            onClick={handleGoogle}
             style={{
               display: "flex",
               alignItems: "center",
@@ -97,7 +123,6 @@ export default function LoginPage() {
               fontSize: "1rem",
               cursor: "pointer",
             }}
-            onClick={() => googleSignIn()}
           >
             <img
               src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png"
@@ -106,21 +131,19 @@ export default function LoginPage() {
             />
             Sign in with Google
           </button>
+
           <div style={{ textAlign: "center" }}>
             <span
               style={{
                 color: "#f97316",
                 textDecoration: "underline",
                 cursor: "pointer",
-                textAlign: "center",
               }}
-              onClick={() => {
-                if (isLoginOrSignUp == "Login") {
-                  setIsLoginOrSignUp("Sign Up");
-                } else {
-                  setIsLoginOrSignUp("Login");
-                }
-              }}
+              onClick={() =>
+                setIsLoginOrSignUp(
+                  isLoginOrSignUp === "Login" ? "Sign Up" : "Login"
+                )
+              }
             >
               {signInOrSignUpText}
             </span>
