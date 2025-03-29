@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { orbitron } from "../layout";
+import { orbitron } from "../obitronStyle";
 import Navbar from "../components/navbar";
 
 export default function TermsPage() {
@@ -45,7 +45,7 @@ export default function TermsPage() {
           When you create a Mango account, you agree to provide accurate,
           up-to-date info and keep your login credentials secure.{" "}
           <span style={{ color: "#f97316" }}>
-            You're responsible for all activity under your account
+            You&apos;re responsible for all activity under your account
           </span>
           .
         </p>

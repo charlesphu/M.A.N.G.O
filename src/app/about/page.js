@@ -1,4 +1,4 @@
-import { orbitron } from "../layout";
+import { orbitron } from "../obitronStyle";
 import Navbar from "../components/navbar";
 
 export default function AboutPage() {
@@ -45,15 +45,15 @@ export default function AboutPage() {
         </p>
 
         <p style={{ fontSize: "1.125rem", marginBottom: "1.5rem" }}>
-          So I thought: what if tracking your property's performance was as easy
-          as checking a stock graph on Robinhood? Are we green this month, or
-          red? And by how much? That’s it.
+          So I thought: what if tracking your property&apos;s performance was as
+          easy as checking a stock graph on Robinhood? Are we green this month,
+          or red? And by how much? That&apos;s it.
         </p>
 
         <p style={{ fontSize: "1.125rem", marginBottom: "1.5rem" }}>
-          Mango was built on that simple, frustrating question — and it’s here
-          to give others the tool I wish I had. Friendly, focused, and genuinely
-          useful. Mango exists now. And it’s only getting better.
+          Mango was built on that simple, frustrating question — and it&apos;s
+          here to give others the tool I wish I had. Friendly, focused, and
+          genuinely useful. Mango exists now. And it&apos;s only getting better.
         </p>
 
         <p style={{ fontSize: "1rem", color: "#888", marginTop: "2rem" }}>

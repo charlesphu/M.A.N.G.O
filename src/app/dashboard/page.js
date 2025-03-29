@@ -6,8 +6,7 @@ import Graphbox from "../components/graphbox"; // 👈 your new chart
 import Navbar from "../components/navbar";
 import metricbox from "../components/metricbox";
 
-
-export default function dashboardpage() {
+export default function DashboardPage() {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);

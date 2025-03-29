@@ -1,4 +1,4 @@
-import { orbitron } from "../layout";
+import { orbitron } from "../obitronStyle";
 import Navbar from "../components/navbar";
 
 export default function ContactPage() {

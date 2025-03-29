@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { orbitron } from "./layout";
+import { orbitron } from "./obitronStyle";
 import Navbar from "./components/navbar";
 
 export default function Home() {
@@ -54,8 +54,8 @@ export default function Home() {
               marginBottom: "2rem",
             }}
           >
-            Manage, track, and optimize your properties' financial data — all in
-            one sleek dashboard.
+            Manage, track, and optimize your properties&apos; financial data —
+            all in one sleek dashboard.
           </p>
           <button
             style={{

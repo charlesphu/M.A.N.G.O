@@ -16,6 +16,5 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const analytics = getAnalytics(app); // ✅ now called after app is defined
 
-export { app, auth, analytics };
+export { app, auth };
